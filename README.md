@@ -8,9 +8,9 @@
 
 # 项目成员与职责
 
-组长：魏瑜琤  撰写并完善项目报告，做报告分析。 | src/reports/paper |
-组员：张娜   数据获取与规划   | config/data/raw/ |
-组员：邹星云   处理相关代码 | data/processed/  |
+组长：魏瑜琤  撰写并完善项目报告，做报告分析。 | reports/paper |
+组员：张娜   数据获取与规划   | data/raw/ |
+组员：邹星云   处理相关代码 | config/data/processed/  |
 组员：潘梦涵   图谱构建与计量分析，完成数据分析并输出结果报告。  | outputs/docs/    |
 
 # 规范化目录结构re
