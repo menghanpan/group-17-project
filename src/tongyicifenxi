@@ -1,0 +1,99 @@
+import pandas as pd
+import re
+import os
+
+def standardize_synonyms(df, synonym_dict, case_sensitive=False):
+    """
+    文献计量专用：同义词/异形词统一标准化
+    :param df: 文献数据 DataFrame
+    :param synonym_dict: 同义词词典 {标准词: [同义词1, 同义词2, ...]}
+    :param case_sensitive: 是否区分大小写（英文文献开启）
+    :return: 清洗后的 DataFrame + 统计报告
+    """
+    # 复制数据避免污染原表
+    df_clean = df.copy()
+    replace_stats = {}
+
+    # 编译正则（批量替换，效率更高）
+    flags = 0 if case_sensitive else re.IGNORECASE
+
+    # 需要清洗的字段（文献计量核心字段）
+    target_columns = ['Keywords', 'Author/s', 'Abstract', 'Title', 'Publication Title']
+
+    for standard_term, synonyms in synonym_dict.items():
+        total_replaced = 0
+
+        # 构建匹配正则（全词匹配，避免误替换）
+        pattern = r'\b(' + '|'.join(re.escape(s) for s in synonyms) + r')\b'
+
+        # 对所有目标字段执行替换
+        for col in target_columns:
+            if col in df_clean.columns:
+                before_count = df_clean[col].astype(str).str.count(pattern, flags=flags).sum()
+                df_clean[col] = df_clean[col].astype(str).str.replace(
+                    pattern, standard_term, flags=flags, regex=True
+                )
+                total_replaced += before_count
+
+        replace_stats[standard_term] = total_replaced
+
+    return df_clean, replace_stats
+
+def run_synonym_cleaning():
+    """主运行函数：同义词标准化流程"""
+    # -------------------------- 1. 路径设置 --------------------------
+    current_file = os.path.abspath(__file__)
+    src_dir = os.path.dirname(current_file)
+    project_root = os.path.dirname(src_dir)
+    input_path = os.path.join(project_root, 'data', 'processed', 'cleaned_data.csv')
+    output_path = os.path.join(project_root, 'data', 'processed', 'final_standardized_data.csv')
+
+    # -------------------------- 2. 读取数据 --------------------------
+    print("=" * 60)
+    print("📚 文献计量同义词标准化程序")
+    print("=" * 60)
+
+    df = pd.read_csv(input_path, encoding='utf-8-sig')
+    print(f"✅ 读取数据：{len(df)} 篇文献")
+
+    # -------------------------- 3. 【核心】自定义同义词词典 --------------------------
+    # 格式：{标准名称: [同义词1, 同义词2, 同义词3...]}
+    # 你可以无限扩展！这是文献计量最关键的一步
+    SYNONYM_DICT = {
+        # 大模型/智能体领域（你的研究方向）
+        "大模型": ["大型语言模型", "LLM", "Large Language Model", "基础模型", "Foundation Model"],
+        "智能体": ["Agent", "Agents", "代理", "智能代理"],
+        "人工智能": ["AI", "Artificial Intelligence"],
+        "深度学习": ["深度神经网络", "DNN", "Deep Learning"],
+        "生成式AI": ["生成式人工智能", "AIGC", "生成AI"],
+
+        # 机构/期刊同义词（可扩展）
+        "清华大学": ["清华", "Tsinghua University", "THU"],
+        "北京大学": ["北大", "Peking University", "PKU"]
+    }
+
+    # -------------------------- 4. 执行同义词统一 --------------------------
+    df_standardized, stats = standardize_synonyms(df, SYNONYM_DICT)
+
+    # -------------------------- 5. 输出清洗报告 --------------------------
+    print("\n📊 同义词替换统计报告：")
+    print("-" * 40)
+    total_all = 0
+    for term, count in stats.items():
+        print(f"✅ {term:<15} ← 替换 {count:>3} 次")
+        total_all += count
+
+    print("-" * 40)
+    print(f"🎉 总计替换同义词：{total_all} 次")
+    print(f"📈 数据标准化完成！")
+
+    # -------------------------- 6. 保存最终数据 --------------------------
+    df_standardized.to_csv(output_path, index=False, encoding='utf-8-sig')
+    print(f"\n💾 最终标准化数据已保存至：")
+    print(output_path)
+    print("=" * 60)
+
+    return df_standardized
+
+if __name__ == "__main__":
+    run_synonym_cleaning()
