@@ -1,0 +1,42 @@
+# R-specific ignores
+.Rhistory
+.RData
+.Rproj.user/
+
+# Data files
+# Ignore raw data files that are not intended for version control
+data/raw/
+
+# Python-related ignores (if the project includes Python code)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment files
+.env
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# IDE and Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Package-specific files
+# Ignore packrat package manager files if used
+packrat/lib/
+packrat/src/
