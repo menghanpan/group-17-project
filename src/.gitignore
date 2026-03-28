@@ -1,42 +1,106 @@
-# R-specific ignores
-.Rhistory
-.RData
-.Rproj.user/
-
-# Data files
-# Ignore raw data files that are not intended for version control
-data/raw/
-
-# Python-related ignores (if the project includes Python code)
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 
-# Environment files
-.env
+# C extensions
+*.so
 
-# Build directories
+# Distribution / packaging
+.Python/
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
 *.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# IDE and Editor directories and files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# System files
-.DS_Store
-Thumbs.db
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
 
-# Logs and temporary files
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
 *.log
-*.tmp
-*.temp
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
 
-# Package-specific files
-# Ignore packrat package manager files if used
-packrat/lib/
-packrat/src/
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
