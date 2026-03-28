@@ -1,1 +1,10 @@
-111
+version: "0.1" #检索式参数配置第一版
+
+  object:
+    - "Semiconductor Material*" # 检索对象：半导体材料
+  
+  # 限定条件 (Constraint)：时间与文献类型
+  constraint:
+    time_window: [2021, 2025]
+    doc_type: ["Journal Article", "Review Paper", "Conference Proceeding"]
+    language: "English"
