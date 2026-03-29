@@ -1,10 +1,5 @@
 version: "0.1" #检索式参数配置第一版
 
-  object:
-    - "Semiconductor Material*" # 检索对象：半导体材料
-  
-  # 限定条件 (Constraint)：时间与文献类型
-  constraint:
-    time_window: [2021, 2025]
-    doc_type: ["Journal Article", "Review Paper", "Conference Proceeding"]
-    language: "English"
+TS=(semiconductor material* OR "wide-bandgap semiconductor*" OR "narrow-bandgap semiconductor*" OR "two-dimensional semiconductor*" OR "organic semiconductor*" OR "inorganic semiconductor*" OR "perovskite semiconductor*")
+AND PY=(2021 OR 2022 OR 2023 OR 2024 OR 2025)
+AND DT=(Article OR "Review Article" OR "Proceeding Paper" OR "Early Access")
