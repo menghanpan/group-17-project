@@ -2,4 +2,4 @@ version: "0.1" #检索式参数配置第一版
 
 TS=(semiconductor material* OR "wide-bandgap semiconductor*" OR "narrow-bandgap semiconductor*" OR "two-dimensional semiconductor*" OR "organic semiconductor*" OR "inorganic semiconductor*" OR "perovskite semiconductor*")
 AND PY=(2021 OR 2022 OR 2023 OR 2024 OR 2025)
-AND DT=(Article OR "Review Article" OR "Proceeding Paper" OR "Early Access")
+AND DT=("Article" OR "Review Article" OR "Proceeding Paper" OR "Early Access")
