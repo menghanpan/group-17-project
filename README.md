@@ -1,16 +1,30 @@
-# PyBibX
-
-一个基于人工智能工具的Python库，用于文献计量和科学计量分析。使用由 Scopus（.bib 文件或 .csv 文件）、WOS（Web of Science）（.bib 文件）和 PubMed（.txt 文件）生成的原始文件。基于此，用于分析半导体材料的前沿追踪。
-
+# 基于第三代半导体材料的前沿追踪和可视化量化分析
+基于第三代半导体材料的前沿追踪和可视化量化分析，旨在系统性地梳理和揭示以硅碳化物（SiC）和氮化镓（GaN）为代表的宽禁带半导体领域的最新研究动态与技术进展。通过构建科学文献检索策略，汇集相关高质量学术成果，结合文献计量分析与可视化工具，深入挖掘研究热点、发展趋势及关键技术节点。该方法不仅量化展示了领域内的知识结构和创新路径，还为研究人员和产业应用提供了战略参考，推动第三代半导体材料在功率电子、射频器件及新型电子器件等领域的科学研究和技术创新。
 # 项目成员与职责
 
-组长：魏瑜琤  撰写并完善项目报告，做报告分析。 | reports/paper |
+组长：张娜   整体安排和相关数据获取与规划   | data/raw/ |
 
-组员：张娜   数据获取与规划   | data/raw/ |
+组员：魏瑜琤  撰写并完善项目报告，做报告分析。 | reports/paper |
 
 组员：邹星云   处理相关代码 | config/data/processed/  |
 
 组员：潘梦涵   图谱构建与计量分析，完成数据分析并输出结果报告。  | outputs/docs/    |
+
+# 检索式
+v0.2
+TS=(
+"third generation semiconductor" OR
+"wide band gap semiconductor" OR
+"wide-bandgap semiconductor" OR
+"silicon carbide" OR
+SiC OR
+"gallium nitride" OR
+GaN
+)
+AND PY=2015-2025
+AND LA=English
+AND DT=("Article" OR "Review" OR "Proceedings Paper")
+
 
 # 规范化目录结构re
 
