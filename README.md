@@ -14,7 +14,6 @@
 v0.2
 TS=(
 "third generation semiconductor" OR
-"wide band gap semiconductor" OR
 "wide-bandgap semiconductor" OR
 "silicon carbide" OR
 SiC OR
