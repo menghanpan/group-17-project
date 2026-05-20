@@ -12,15 +12,9 @@
 
 # 检索式
 v0.2
-TS=(
-"third generation semiconductor" OR
-"wide-bandgap semiconductor" OR
-"silicon carbide" OR
-SiC OR
-"gallium nitride" OR
-GaN
-)
-AND PY=2015-2025
+TS=( “third generation semiconductor” OR “wide-bandgap semiconductor” OR “silicon carbide” OR SiC OR “gallium nitride” OR GaN )
+AND TS=(“MOSFET” OR “HEMT” OR “SBD” OR “transistor” OR “diode”)
+AND PY=2020-2025
 AND LA=English
 AND DT=("Article" OR "Review" OR "Proceedings Paper")
 
