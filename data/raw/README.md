@@ -18,12 +18,12 @@
 
 检索式版本：config/query.yaml/0.2
 
-导出参数：时间窗2015-2025，语言English，文献类别Article/Review/Proceedings Paper
+导出参数：时间窗2020-2025，语言English，文献类别Article/Review/Proceedings Paper
 
-原始文件：date/raw（1）~raw（6）
+原始文件：date/raw（1）
 
-数据量：6000篇
+数据量：1000篇
 
-导出时间：4/15/00：06
+导出时间：5/20/23:15
 
 导出核心字段：作者/标题/资料来源/conf.lnfo/Sponsors/被引用次数/ISSN/摘要/地址/文档类型/关键词/引用参考文献/使用次数/热报/高被引用
